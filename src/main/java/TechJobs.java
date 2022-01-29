@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import javax.crypto.spec.PSource;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -10,7 +8,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -112,14 +110,44 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//     for (int i = 0; i < students.size(); i++) {
+//         System.out.println(students.get(i) + " (" + grades.get(i) + ")");
+//         sum += grades.get(i);
+//      }
+//    for (Map.Entry<String, Double> student : students.entrySet()) {
+//   System.out.println(student.getKey() + " (" + student.getValue() + ")");
+//   sum += student.getValue();
+//}
+//      for (Map<String, String> entry : someJobs) {
+//            for (String key : entry.keySet()) {
+//                String value = entry.get(key);
+//                System.out.println("key = " + key);
+//                System.out.println("value = " + value);
+//            }
+//        }
 
-        System.out.println("printJobs is not implemented yet");
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (!someJobs.isEmpty()) {
+        for (Map<String, String> job : someJobs){
+
+            System.out.println("*****");
+            for (Map.Entry<String, String> entry : job.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+            System.out.println("*****\n");
+            }
+            } else {
+            System.out.println("The job does not exist.");
+        }
+
     }
+
+
 }
+
