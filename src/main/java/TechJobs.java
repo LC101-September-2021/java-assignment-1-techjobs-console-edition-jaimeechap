@@ -39,9 +39,7 @@ public class TechJobs {
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
                 } else {
-
                     ArrayList<String> results = JobData.findAll(columnChoice);
-
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
@@ -60,9 +58,10 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
+//                   ORIGINAL printJobs(JobData.findByValue(searchTerm));
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                  printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
         }
@@ -116,26 +115,10 @@ public class TechJobs {
     }
 
     // Print a list of jobs
-//     for (int i = 0; i < students.size(); i++) {
-//         System.out.println(students.get(i) + " (" + grades.get(i) + ")");
-//         sum += grades.get(i);
-//      }
-//    for (Map.Entry<String, Double> student : students.entrySet()) {
-//   System.out.println(student.getKey() + " (" + student.getValue() + ")");
-//   sum += student.getValue();
-//}
-//      for (Map<String, String> entry : someJobs) {
-//            for (String key : entry.keySet()) {
-//                String value = entry.get(key);
-//                System.out.println("key = " + key);
-//                System.out.println("value = " + value);
-//            }
-//        }
 
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         if (!someJobs.isEmpty()) {
         for (Map<String, String> job : someJobs){
-
             System.out.println("*****");
             for (Map.Entry<String, String> entry : job.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());
